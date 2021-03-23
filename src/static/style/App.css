@@ -1,0 +1,74 @@
+.logo {
+  height: 32px;
+  margin: 16px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.site-layout .site-layout-background {
+  background: #fff;
+}
+.Row {
+  padding: 5vh 0;
+  margin-bottom: 2vh;
+}
+.Left {
+  height: 60vh;
+}
+.Right {
+  height: 60vh;
+}
+.Center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Center p{
+  margin-top: revert;
+  margin-right: 1vw;
+}
+
+.ant-menu-item a{
+  font-size: 20px;
+}
+.ant-steps-item-title{
+  font-size: 20px;
+}
+.ant-list-item-meta-title{
+  font-size: 18px;
+}
+p{
+  font-size: 18px;
+}
+.ant-list-item-meta-description{
+  color: black;
+}
+.object{
+  color:red!important;
+}
+.object-item .ant-card{
+  color: red!important;
+}
+
+.level{
+  color: coral !important;
+}
+.level-item .ant-card{
+  color: coral !important;
+}
+
+.scene{
+  color: blueviolet !important;
+}
+.scene-item .ant-card{
+  color: blueviolet !important;
+}
+
+.method{
+  color:dodgerblue !important;
+}
+.method-item .ant-card{
+  color: dodgerblue !important;
+}
+.data{
+  color:black !important;
+}

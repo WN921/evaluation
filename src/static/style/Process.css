@@ -1,0 +1,9 @@
+.ant-radio-group{
+    width: 100%!important;
+}
+.Process-Method-Right{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+}

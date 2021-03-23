@@ -1,0 +1,18 @@
+.Factor-Menu{
+    display: flex;
+    justify-content: space-around;
+}
+.Factor-Obj-Image{
+    height: 50vh;
+    display: flex;
+    align-items: center;
+}
+.Factor-Obj-h1{
+    font-size: larger;
+    text-align: center;
+}
+.Factor-Obj-Card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
