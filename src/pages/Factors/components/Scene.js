@@ -10,6 +10,7 @@ import {
   message,
   Popconfirm,
   Menu,
+  Dropdown,
 } from "antd";
 import { DeleteOutlined } from "@ant-design/icons";
 import { Switch, Route, Link } from "react-router-dom";
@@ -19,6 +20,8 @@ import {
   scene_selectall,
   scene_selectone,
   scene_delete,
+  task_selectall,
+  env_selectall_name,
 } from "../../../api/api";
 import TaskAndEnv from "./TaskAndEnv";
 const { TextArea } = Input;
@@ -33,6 +36,9 @@ function Scene(props) {
   const [sceneList, setSceneList] = useState([]);
   const [selectedId, setSelectedId] = useState(0);
 
+  const [taskList, setTaskList] = useState([]);
+  const [envList, setEnvList] = useState([]);
+
   useEffect(() => {
     scene_selectall().then((res) => {
       if (res?.status === 200) {
@@ -42,7 +48,26 @@ function Scene(props) {
         message.error("load scene list fail");
       }
     });
+
+    task_selectall().then((res) => {
+      if (res.status === 200) {
+        setTaskList(res.data);
+      } else {
+        message.error("load fail");
+      }
+    });
+
+    env_selectall_name().then((res) => {
+      if (res.status === 200) {
+				console.log(res.data);
+        setEnvList(res.data);
+      }
+			else {
+				message.error('load fail');
+			}
+    });
   }, []);
+
   const loadImage = (e) => {
     setFile(e?.target?.files[0]);
     setFileURL(URL.createObjectURL(e?.target?.files[0]));
@@ -67,6 +92,26 @@ function Scene(props) {
       }
     });
   };
+
+  const taskMenu = (
+    <Menu>
+      {taskList.map((item) => (
+        <Menu.Item onClick={() => setTaskName(item.taskname)}>
+          {item.taskname}
+        </Menu.Item>
+      ))}
+    </Menu>
+  );
+
+  const envMenu =(
+    <Menu>
+      {envList.map((item) => (
+        <Menu.Item onClick={() => setEvnName(item.envname)}>
+          {item.envname}
+        </Menu.Item>
+      ))}
+    </Menu>
+  );
   return (
     <>
       <Row className="Row" gutter={32}>
@@ -174,22 +219,16 @@ function Scene(props) {
               </Row>
               <Row gutter={32} className="scene-item">
                 <Col span={18} className="Factor-Obj-Card">
-                  <Card bordered={false} style={{ width: "30vw", margin: "0" }}>
-                    <p>任务名称:</p>
-                    <Input
-                      value={taskName}
-                      onChange={(e) => {
-                        setTaskName(e.target.value);
-                      }}
-                    />
+                  <Card bordered={false} className='Center'style={{ width: "30vw", margin: "0" }}>
+                    <Dropdown overlay={taskMenu} placement="bottomLeft">
+                      <Button>任务名称</Button>
+                    </Dropdown>
+                    <Input value={taskName} disabled/>
                     <Divider />
-                    <p>环境名称:</p>
-                    <Input
-                      value={envName}
-                      onChange={(e) => {
-                        setEvnName(e.target.value);
-                      }}
-                    />
+                    <Dropdown overlay={envMenu} placement="bottomLeft">
+                      <Button>环境名称</Button>
+                    </Dropdown>
+                    <Input value={envName} disabled/>
                     <Divider />
                     <p>任务描述:</p>
                     <TextArea

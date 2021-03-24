@@ -250,12 +250,13 @@ export const task_update = (taskname, taskdesc) => {
   })
 }
 
-export const env_upload = (envname, file) => {
+export const env_upload = (envname, file, vdesc ) => {
   let data = new FormData();
   data.append("file", file);
   return axiosInstance.post('/env_upload', data, {
     params: {
-      envname
+      envname,
+      vdesc 
     }
   })
 }

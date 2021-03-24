@@ -23,6 +23,7 @@ function TaskAndEnv(props) {
   const [file, setFile] = useState(null);
 	const [envList, setEnvList] = useState([]);
 	const [selectedEnvId, setSelectedEnvId] = useState(0);
+  const [envDesc, setEnvDesc] = useState('');
 
 
   useEffect(() => {
@@ -163,6 +164,7 @@ function TaskAndEnv(props) {
 					envList.forEach(item => {
 						if(item.id === e.target.value){
 							setEnvName(item.envname);
+              setEnvDesc(item.vdesc)
 						}
 					})
 				}}
@@ -198,7 +200,7 @@ function TaskAndEnv(props) {
             marginTop: "3vh",
           }}
           onClick={() => {
-						env_upload(envName, file).then(res => {
+						env_upload(envName, file, envDesc).then(res => {
 							if(res.status === 200){
 								message.success(res.data);
 							}
@@ -217,6 +219,16 @@ function TaskAndEnv(props) {
           value={envName}
           onChange={(e) => {
             setEnvName(e.target.value);
+          }}
+        />
+        <Divider />
+        
+        <p>环境描述：</p>
+        <TextArea
+          rows={3}
+          value={envDesc}
+          onChange={(e) => {
+            setEnvDesc(e.target.value);
           }}
         />
         <Divider />
