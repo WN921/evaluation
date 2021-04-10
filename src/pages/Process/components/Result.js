@@ -27,6 +27,7 @@ function Result(props) {
       }
     });
   }, []);
+
   useEffect(() => {
     if (!props.res) {
       return;
@@ -99,8 +100,15 @@ function Result(props) {
         let xAxisData = [];
         let yAxisData = [];
         res.data.forEach(item => {
+          if(item.methodname !== props.method || item.dataname !== props.source){
+            return;
+          }
           xAxisData.push(item.id);
           yAxisData.push(item.result);
+          if(xAxisData.length >= 6){
+            xAxisData.shift();
+            yAxisData.shift();
+          }
         });
 
         var chartDom = document.getElementById("line-chart");
@@ -128,7 +136,7 @@ function Result(props) {
         message.error("获取历史数据有误！");
       }
     });
-  });
+  }, []);
 
   return (
     <>

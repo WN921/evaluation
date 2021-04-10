@@ -11,6 +11,7 @@ import {
   Popconfirm,
   Menu,
   Dropdown,
+  Select,
 } from "antd";
 import { DeleteOutlined } from "@ant-design/icons";
 import { Switch, Route, Link } from "react-router-dom";
@@ -25,7 +26,7 @@ import {
 } from "../../../api/api";
 import TaskAndEnv from "./TaskAndEnv";
 const { TextArea } = Input;
-
+const { Option } = Select;
 function Scene(props) {
   const [sceneName, setSceneName] = useState("");
   const [taskName, setTaskName] = useState("");
@@ -59,12 +60,11 @@ function Scene(props) {
 
     env_selectall_name().then((res) => {
       if (res.status === 200) {
-				console.log(res.data);
+        console.log(res.data);
         setEnvList(res.data);
+      } else {
+        message.error("load fail");
       }
-			else {
-				message.error('load fail');
-			}
     });
   }, []);
 
@@ -103,7 +103,7 @@ function Scene(props) {
     </Menu>
   );
 
-  const envMenu =(
+  const envMenu = (
     <Menu>
       {envList.map((item) => (
         <Menu.Item onClick={() => setEvnName(item.envname)}>
@@ -219,16 +219,27 @@ function Scene(props) {
               </Row>
               <Row gutter={32} className="scene-item">
                 <Col span={18} className="Factor-Obj-Card">
-                  <Card bordered={false} className='Center'style={{ width: "30vw", margin: "0" }}>
+                  <Card
+                    bordered={false}
+                    className="Center"
+                    style={{ width: "30vw", margin: "0" }}
+                  >
+                    {/* <Input.Group compact>
+                      <Select defaultValue="任务名称">
+                        <Option value="Zhejiang">Zhejiang</Option>
+                        <Option value="Jiangsu">Jiangsu</Option>
+                      </Select>
+                    </Input.Group> */}
+
                     <Dropdown overlay={taskMenu} placement="bottomLeft">
-                      <Button>任务名称</Button>
+                      <Button visible={false}>任务名称</Button>
                     </Dropdown>
-                    <Input value={taskName} disabled/>
+                    <Input value={taskName} disabled />
                     <Divider />
                     <Dropdown overlay={envMenu} placement="bottomLeft">
                       <Button>环境名称</Button>
                     </Dropdown>
-                    <Input value={envName} disabled/>
+                    <Input value={envName} disabled />
                     <Divider />
                     <p>任务描述:</p>
                     <TextArea
