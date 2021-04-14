@@ -20,7 +20,7 @@ function Obj(props) {
       if (res.status === 200) {
         setObjList(res.data);
       } else {
-        message.error("load list fail");
+        message.error("加载失败");
       }
     });
   }, []);

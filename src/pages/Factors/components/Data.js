@@ -51,9 +51,9 @@ function Data(props) {
           }
         });
         setSources(sources);
-        message.success("load success");
+        
       } else {
-        message.error("uoload fail");
+        message.error("加载失败");
       }
     });
     object_selectall_name().then(res => {
@@ -79,7 +79,7 @@ function Data(props) {
         message.success(res?.data);
         setSourceName(sourceName);
       } else {
-        message.error("upload fail");
+        message.error("上传失败");
       }
     });
   };
@@ -92,7 +92,7 @@ function Data(props) {
       if (res.status === 200) {
         message.success(res.data);
       } else {
-        message.error("delete fail");
+        message.error("删除成功");
       }
     });
   };

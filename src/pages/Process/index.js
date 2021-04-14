@@ -25,9 +25,9 @@ function Process(props) {
       <Steps current={step}>
 
         <Step title="评估对象选择" />
-        <Step title="等级选择" />
-        <Step title="场景选择" />
-        <Step title="数据源选择" />
+        <Step title="评估等级选择" />
+        <Step title="评估场景选择" />
+        <Step title="评估数据源选择" />
         <Step title="评估方法选择" />
         {/* <Step title="为指标分配权重" /> */}
         <Step title="评估结果" />

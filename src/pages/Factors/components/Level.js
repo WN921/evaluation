@@ -16,7 +16,7 @@ function Level(props) {
     useEffect(() => {
         accessLevel_selectall().then((res) => {
             if (res.status !== 200) {
-                console.log("访问失败")
+                console.log("加载失败")
             }
             else {
                 console.log(res.data);
@@ -30,7 +30,7 @@ function Level(props) {
                 message.success(res.data);
             }
             else {
-                message.error('delete fail');
+                message.error('上传失败');
             }
 
         });
@@ -41,7 +41,7 @@ function Level(props) {
                 message.success(res.data);
             }
             else {
-                message.error('update fail');
+                message.error('更新失败');
             }
 
         });

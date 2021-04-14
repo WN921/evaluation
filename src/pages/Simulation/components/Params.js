@@ -60,7 +60,7 @@ function Params(props) {
 				if (res.status === 200) {
 					message.success(res.data);
 				} else {
-					message.error(res.data);
+					message.error('仿真失败');
 				}
 			});
 		} else if (selectedItem === "Gazebo") {
@@ -68,7 +68,7 @@ function Params(props) {
 				if (res.status === 200) {
 					message.success(res.data);
 				} else {
-					message.error(res.data);
+					message.error('仿真失败');
 				}
 			});
 		}

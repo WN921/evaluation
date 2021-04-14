@@ -38,7 +38,7 @@ function Obj(props) {
       if (res.status === 200) {
         setObjList(res.data);
       } else {
-        message.error("load list fail");
+        message.error("加载失败");
       }
     });
   }, []);
@@ -47,7 +47,7 @@ function Obj(props) {
       if (res.status === 200) {
         message.success(res.data);
       } else {
-        message.error("delete fail");
+        message.error("删除失败");
       }
     });
   };
@@ -77,7 +77,7 @@ function Obj(props) {
       if (res.data) {
         message.success(res.data);
       } else {
-        message.error("delete fail");
+        message.error("上传失败");
       }
     });
   };

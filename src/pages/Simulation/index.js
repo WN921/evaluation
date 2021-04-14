@@ -23,8 +23,8 @@ function Simulation(props) {
         <>
             <Steps current={step}>
                 <Step title="评估对象选择" />
-                <Step title="等级选择" />
-                <Step title="场景选择" />
+                <Step title="评估等级选择" />
+                <Step title="评估场景选择" />
                 <Step title="输入仿真参数" />
                 {/* <Step title="实时仿真" /> */}
             </Steps>

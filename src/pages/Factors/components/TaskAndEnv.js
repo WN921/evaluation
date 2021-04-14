@@ -32,7 +32,7 @@ function TaskAndEnv(props) {
         setTaskList(res.data);
       }
 			else {
-				message.error('load fail');
+				message.error('加载失败');
 			}
     });
 		env_selectall_name().then((res) => {
@@ -41,7 +41,7 @@ function TaskAndEnv(props) {
         setEnvList(res.data);
       }
 			else {
-				message.error('load fail');
+				message.error('加载失败');
 			}
     });
   }, []);
@@ -60,7 +60,7 @@ function TaskAndEnv(props) {
       if (res.status === 200) {
         message.success(res.data);
       } else {
-        message.error("delete fail");
+        message.error("删除失败");
       }
     });
   };
@@ -70,7 +70,7 @@ function TaskAndEnv(props) {
       if (res.status === 200) {
         message.success(res.data);
       } else {
-        message.error("delete fail");
+        message.error("删除失败");
       }
     });
   };
@@ -80,7 +80,7 @@ function TaskAndEnv(props) {
       if (res.status === 200) {
         message.success(res.data);
       } else {
-        message.error(res.data);
+        message.error('上传失败');
       }
     });
   };

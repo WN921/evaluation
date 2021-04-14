@@ -23,7 +23,7 @@ function Method(props) {
       if (res && res.data) {
         setMethods(res.data);
       } else {
-        message.error("get methods info fail");
+        message.error("加载失败");
       }
     });
   }, []);
@@ -33,7 +33,7 @@ function Method(props) {
       if (res && res.data) {
         message.success(res.data);
       } else {
-        message.error("fail");
+        message.error("上传失败");
       }
     });
   };
@@ -42,7 +42,7 @@ function Method(props) {
       if (res && res.data) {
         message.success(res.data);
       } else {
-        message.error("fail");
+        message.error("更新失败");
       }
     });
   };
@@ -51,7 +51,7 @@ function Method(props) {
       if (res && res.data) {
         message.success(res.data);
       } else {
-        message.error("fail");
+        message.error("删除失败");
       }
     });
   };

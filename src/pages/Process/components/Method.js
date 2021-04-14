@@ -17,7 +17,7 @@ function Method(props) {
       if (res && res.data) {
         setMethods(res.data);
       } else {
-        message.error("get methods info fail");
+        message.error("加载失败");
       }
     });
   }, []);

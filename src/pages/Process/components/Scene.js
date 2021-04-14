@@ -26,7 +26,7 @@ function Scene(props) {
         console.log(res.data);
         setSceneList(res.data);
       } else {
-        message.error("load scene list fail");
+        message.error("加载失败");
       }
     });
   }, []);

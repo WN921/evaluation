@@ -16,7 +16,7 @@ function Level(props) {
   useEffect(() => {
     accessLevel_selectall().then((res) => {
       if (res.status !== 200) {
-        console.log("访问失败");
+        console.log("加载失败");
       } else {
         console.log(res.data);
         setLevels(res.data);
